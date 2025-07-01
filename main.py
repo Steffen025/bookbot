@@ -1,3 +1,5 @@
+import sys
+
 def get_book_text(link):
     """
     Fetches the text content of a book from a given link.
@@ -20,7 +22,12 @@ def main():
     """
     Main function to print the book statistical report.
     """
-    link = "books/frankenstein.txt" 
+
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    link = sys.argv[1]
     book_text = get_book_text(link)
     sorted_char_count = sort_dict_by_value(char_count(book_text))
 
