@@ -32,3 +32,16 @@ def char_count(text):
             char_count_dict[char] = use_text.count(char)
     return char_count_dict
 
+def sort_dict_by_value(d):
+    """
+    Sorts a dictionary by its values in descending order.
+    
+    Args:
+        d (dict): The dictionary to sort.
+    
+    Returns:
+        list: A list of tuples sorted by value in descending order.
+    """
+    
+    return sorted(d.items(), key=lambda item: item[1], reverse=True)
+

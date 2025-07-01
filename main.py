@@ -14,14 +14,24 @@ def get_book_text(link):
 
 from stats import word_count
 from stats import char_count
+from stats import sort_dict_by_value
 
 def main():
     """
-    Main function to execute the book statistical analysis.
+    Main function to print the book statistical report.
     """
-    link = "books/frankenstein.txt"  # Example file path
+    link = "books/frankenstein.txt" 
     book_text = get_book_text(link)
-    print(f"{word_count(book_text)} words found in the document.")
-    print(char_count(book_text))
+    sorted_char_count = sort_dict_by_value(char_count(book_text))
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {link}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count(book_text)} total words.")
+    print("--------- Character Count -------")
+    for char in sorted_char_count:
+        print(f"{char[0]}: {char[1]}")
+    print("============= END ===============")
 
 main()
+
